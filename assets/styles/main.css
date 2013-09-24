@@ -1,0 +1,14 @@
+
+body{
+
+	padding-top: 50px;
+}
+
+#map_container {height: 950px;}
+
+
+.btn-thumb{
+    max-width:75px;
+    max-height:75px;
+    overflow:hidden;
+}
