@@ -1,0 +1,2 @@
+# QuickBus
+### a Sails application
