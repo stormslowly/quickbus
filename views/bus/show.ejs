@@ -1,0 +1,65 @@
+<script src="http://api.go2map.com/maps/js/api_v2.5.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+
+$(function(){	
+var myLatlng = new sogou.maps.Point(13522000,3641093);
+
+	var myOptions = {
+		'zoom' : 11,
+		'center' : myLatlng,
+		'mapControlType' :3,
+	};
+	var map = new sogou.maps.Map(document.getElementById("map_container"),
+			myOptions);
+	console.log("map inited");
+});
+
+$(function(){
+	var socket;
+	window.socket = socket = io.connect();
+	socket.on("connect",function(){
+		socket.request("/position/findAll",{"where":{
+			"id":-1}} ,function(res){console.log(res);})
+		socket.on("message",function(msg){console.log("msg:",msg)})
+		console.log("yes !")
+	})
+
+})
+
+</script>
+
+<div class="row-fluid ">
+
+    <div class='span9 img-rounded' id="map_container" style="height:500px;">
+    </div>
+
+    <div class='span3'>
+        <div class="span12"></div>
+        <div class='span12'>
+            <div class="btn btn-large">
+                <div class="span5"><image class="btn-thumb" src="images/stations_position.jpg" /></div>
+                <div class="offset1 span6">校车位置</div>
+            </div>
+        </div>
+
+        <div class="span12"></div>
+        <div class='span12'>
+            <div class="btn btn-large">
+                <div class="span5"><image class="btn-thumb" src="images/school_bus.jpg" /></div>
+                <div class="offset1 span6">校车路线</div>
+            </div>
+        </div>
+
+        <div class="span12"></div>
+        <div class='span12'>
+            <div class="btn btn-large">
+                <div class="span5"><image class="btn-thumb" src="images/send_sms.png" /> </div>
+                <div class="offset1 span6">订阅短信</div>
+        </div>
+        </div>
+    </div>
+
+
+</div>
