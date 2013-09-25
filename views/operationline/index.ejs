@@ -1,0 +1,63 @@
+<div >
+
+    <div class="row-fluid">
+        <ul class='thumbnails'>
+            <li class='row-fluid span4'>
+                <div class="thumbnail">
+                    <div class='span12'>站点一 > 站点2</div>
+                    <form action="/" method="post">
+                        <input type="hidden" id="line" name="line" value="1" />
+                        <button id="test" class="btn  btn-large" type="submit">选择</button>
+                    </form>
+                </div>
+
+            </li>
+            <li class='row-fluid span4'>
+                <div class="thumbnail">
+                    <div class='span12'>路线一</div>
+                    <form action="/" method="post">
+                        <input type="hidden" id="line" name="line" value="2" />
+                        <button class="btn  btn-large" type="submit">选择</button>
+                    </form>
+                </div>
+
+            </li>
+            <li class='row-fluid span4'>
+                <div class="thumbnail">
+                    <div class='span12'>路线一</div>
+                    <form action="/" method="post">
+                        <input type="hidden" id="line" name="line" value="3" />
+                        <button class="btn  btn-large" type="submit">选择</button>
+                    </form>
+                </div>
+
+            </li>
+        </ul>
+
+    </div>
+
+
+    <script>
+        $(function(){
+            $('.btn').bind('click', function(e){
+                e.preventDefault(); // preventing default click action
+                $.ajax({
+                    url: '/',
+                    type: 'post',
+                    data: 'line=1',
+                    success: function(){
+                        console.log("yes", $(e.srcElement.form).serialize());
+                        $('.btn').toggleClass('btn-success',false);
+                        $(e.srcElement).toggleClass('btn-success');
+                        // ajax callback
+                    },
+                    error: function(){
+                        alert('ajax failed');
+                    }
+                })
+            })
+        })
+    </script>
+
+
+</div>
