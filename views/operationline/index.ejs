@@ -30,7 +30,6 @@
                         <button class="btn  btn-large" type="submit">选择</button>
                     </form>
                 </div>
-
             </li>
         </ul>
 
@@ -42,9 +41,9 @@
             $('.btn').bind('click', function(e){
                 e.preventDefault(); // preventing default click action
                 $.ajax({
-                    url: '/',
+                    url: '/driver',
                     type: 'post',
-                    data: 'line=1',
+                    data: $(e.srcElement.form).serialize(),
                     success: function(){
                         console.log("yes", $(e.srcElement.form).serialize());
                         $('.btn').toggleClass('btn-success',false);

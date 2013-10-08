@@ -36,7 +36,13 @@ module.exports.routes = {
     view: 'bus/show'
   },
 
-  '/driver': {
+  'post /driver':{
+    controller: 'OperationlineController',
+    action: 'setline'
+
+  } ,
+
+  'get /driver': {
       view: 'operationline/index'
   }
 
