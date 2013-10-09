@@ -1,14 +1,9 @@
-/*---------------------
-	:: OperationLine 
-	-> controller
----------------------*/
-
+"use strict";
 
 var OperationlineController = {
 
-    index: function( req, res ){
+    index: function (req, res) {
         res.view();
-
     },
 
     setline: function (req, res) {
@@ -16,21 +11,18 @@ var OperationlineController = {
         var post_data = req.body, line;
         console.log("req", req.body);
 
-        line = parseInt(post_data.line);
-        if(line.toString() === "NaN" ) {
-            res.json({status:"wrong line data"});
-        }else{
+        line = parseInt(post_data.line, 10);
+        if (line.toString() === "NaN") {
+            res.json({status: "wrong line data"});
+        } else {
 
-            Currentline.update({id:1},{line:line},function(error,lines){
-                res.json({status:"success"});
-            })
+            Currentline.update({id: 1}, {line: line}, function (error, lines) {
+                res.json({status: "success"});
+            });
 
         }
 
 
     }
-
-
-
 };
 module.exports = OperationlineController;
