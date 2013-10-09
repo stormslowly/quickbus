@@ -40,12 +40,13 @@
         $(function(){
             $('.btn').bind('click', function(e){
                 e.preventDefault(); // preventing default click action
+                var post_data = $(e.srcElement.form).serialize();
                 $.ajax({
                     url: '/driver',
                     type: 'post',
-                    data: $(e.srcElement.form).serialize(),
+                    data: post_data,
                     success: function(){
-                        console.log("yes", $(e.srcElement.form).serialize());
+                        console.log("yes", post_data);
                         $('.btn').toggleClass('btn-success',false);
                         $(e.srcElement).toggleClass('btn-success');
                         // ajax callback

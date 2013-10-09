@@ -13,16 +13,20 @@ var OperationlineController = {
 
     setline: function (req, res) {
 
-        console.log("req",req.body);
+        var post_data = req.body, line;
+        console.log("req", req.body);
 
-        Operationline.find().exec(function ( error, data ) {
-            if(data.length!==0){
-//               console.log(data);
-            }
+        line = parseInt(post_data.line);
+        if(line.toString() === "NaN" ) {
+            res.json({status:"wrong line data"});
+        }else{
 
-        });
+            Currentline.update({id:1},{line:line},function(error,lines){
+                res.json({status:"success"});
+            })
 
-        res.json({a:"shelly"});
+        }
+
 
     }
 
