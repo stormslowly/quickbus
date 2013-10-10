@@ -43,7 +43,8 @@ module.exports.routes = {
   } ,
 
   'get /driver': {
-      view: 'operationline/index'
+      controller: 'OperationlineController',
+      action: 'index'
   }
 
   /*

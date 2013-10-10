@@ -3,7 +3,7 @@
 var OperationlineController = {
 
     index: function (req, res) {
-        res.view();
+        res.view({test_name: "this is a new line"});
     },
 
     setline: function (req, res) {
