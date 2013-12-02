@@ -2,8 +2,10 @@
  * Views
  * 
  * Server-sent views are a classic and effective way to get your app up and running.
- * Views are normally served from controllers.  Below, you can configure your 
- * templating language/framework of choice and configure Sails' layout support.
+ * Views are normally served from controllers, but by default, Sails also exposes routes
+ * to allow you to preview your views in a browser.  This automatic routing can be disabled
+ * using the `blueprint` config below.  You can also configure your templating language/framework
+ * of choice, and configure Sails' layout support.
  *
  * For more information on views and layouts, check out:
  * http://sailsjs.org/#documentation
@@ -27,11 +29,11 @@ module.exports.views = {
 
 
   // Layouts are simply top-level HTML templates you can use as wrappers 
-  // for your server-side views.  If you're using ejs or jade, you can take advantage of
+  // for your server-side views.  If you're using ejs, you can take advantage of
   // Sails' built-in `layout` support.
   // 
-  // When using a layout, when one of your views is served, it is injected into
-  // the `body` partial defined in the layout.  This lets you reuse header
+  // With using a layout, when one of your views is served, it is injected into
+  // the <%- body %> partial defined in the layout.  This lets you reuse header
   // and footer logic between views.
   //
   // NOTE:  Layout support is only implemented for the `ejs` view engine!
