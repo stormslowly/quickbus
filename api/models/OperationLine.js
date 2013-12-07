@@ -2,11 +2,11 @@
 
 module.exports = {
 
-    tableName: 'bus_operationline',
-
-    attributes : {
-        line: 'INTEGER',
-        stopid: 'INTEGER',
-        order: 'INTEGER'
-    }
+  tableName: 'bus_operationline',
+  schema: true,
+  attributes : {
+      line: 'INTEGER',
+      stopid: 'INTEGER',
+      order: 'INTEGER'
+  }
 };
