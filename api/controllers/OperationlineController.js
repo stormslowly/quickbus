@@ -26,7 +26,7 @@ var OperationlineController = {
 
   index: function (req, res) {
 
-    BusVehicle.findByRoute_NameIn(["校车专线1","校车专线2"],function(err,data){
+    BusVehicle.findByRoute_NameIn(sails.config.BusRoutes,function(err,data){
       if(err){
         res.view("500.ejs");
       }
@@ -47,7 +47,7 @@ var OperationlineController = {
       res.json({status: "wrong line data"});
     } else {
 
-      BusVehicle.findByRoute_NameIn(["校车专线1","校车专线2"],function(err,data){
+      BusVehicle.findByRoute_NameIn(sails.config.BusRoutes,function(err,data){
         if(line===1){
           
           if(data[0].Vehicle_ID===2000 && data[0].Route_Name === "校车专线1"){

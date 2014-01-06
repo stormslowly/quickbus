@@ -83,5 +83,6 @@
 
     // Custom Globals
     "globals": {"BusVehicle":true,
-                "Currentline": true} // additional predefined global variables
+                "Currentline": true,
+                "sails": true} // additional predefined global variables
 }
