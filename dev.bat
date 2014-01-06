@@ -1,0 +1,1 @@
+nodemon -w api\controllers -w api\models  --ext ".js"  app.js

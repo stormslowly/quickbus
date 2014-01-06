@@ -2,39 +2,30 @@
 
     <div class="row-fluid">
         <ul class='thumbnails'>
-            <li class='row-fluid span4'>
-                <div class="thumbnail">
-                        <div class='span12'><%= test_name %></div>
-                    <form action="/" method="post">
-                        <input type="hidden" id="line" name="line" value="1" />
-                        <button id="test" class="btn  btn-large" type="submit">选择</button>
-                    </form>
-                </div>
 
-            </li>
-            <li class='row-fluid span4'>
-                <div class="thumbnail">
-                    <div class='span12'>路线一</div>
-                    <form action="/" method="post">
-                        <input type="hidden" id="line" name="line" value="2" />
-                        <button class="btn  btn-large" type="submit">选择</button>
-                    </form>
-                </div>
+        <% for( var i = 0; i<data.length; i++){ %>
 
-            </li>
             <li class='row-fluid span4'>
                 <div class="thumbnail">
-                    <div class='span12'>路线一</div>
+                    <div class='span12'><%= data[i].Route_Name %></div>
                     <form action="/" method="post">
-                        <input type="hidden" id="line" name="line" value="3" />
-                        <button class="btn  btn-large" type="submit">选择</button>
+                        <input type="hidden" id="line" name="line" value=
+                            <%= data[i].Route_Name[ data[i].Route_Name.length -1] %>
+                        >
+                        <button 
+                            <% if(data[i].Vehicle_ID===2000) { %> 
+                               class = "btn  btn-large btn-success"  
+                            <% }else{ %>
+                               class = "btn  btn-large "
+                            <% } %>
+                            
+                            type="submit">选择</button>
                     </form>
                 </div>
             </li>
-        </ul>
+        <% } %>
 
     </div>
-
 
     <script>
         $(function(){
@@ -58,6 +49,5 @@
             })
         })
     </script>
-
 
 </div>
