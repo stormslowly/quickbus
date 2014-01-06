@@ -82,5 +82,6 @@
     "white": false, // true: Check against strict whitespace and indentation rules
 
     // Custom Globals
-    "globals": {} // additional predefined global variables
+    "globals": {"BusVehicle":true,
+                "Currentline": true} // additional predefined global variables
 }

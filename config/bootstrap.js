@@ -12,20 +12,5 @@ module.exports.bootstrap = function (cb) {
 
   // It's very important to trigger this callack method when you are finished 
   // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)
-  console.log("boot strap now ");
-  Currentline.findOne({id:1}).done(function(err,row){
-    console.log(err,row);
-    if (err){
-        console.info("bad things happen");
-    	cb(err);
-    }else{
-      if( row===undefined || row.length === 0){
-        Currentline.create({line:1}).done(function(err,line){
-          console.log("saved ",err,line);
-          cb(err);
-        });
-      }
-      cb();
-    }
-  });
+  cb();
 };
